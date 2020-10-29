@@ -1,0 +1,82 @@
+QWANT:
+
+Presentation:
+  - Search engine respect privacy
+  - Independent search engine
+  - Cost: Hard to be precise
+  - 80 people
+
+Problem:
+  - no storing user data
+  - send query + vector (of user data)
+  - the service provider should not infer personal info on it
+
+  - ML on the data vectors -> recognized which vector comes from which user
+  - Use of Language Model
+
+Questions:
+
+  - Use cipher ?
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+BE-YS: Prove there exist a system in which an attacker cannot create a false token (prove that fraud cannot happen)
+
+Presentation:
+
+  - Processing hosting data (ex: tiers payant processed by be-ys)
+  - Making payment methods over the
+
+Problem: (securization using tokens ? -> Online payment)
+
+  - Access card number and protect it
+  - https n'est pas secure (https garantit que l'échange et le serveur est encrypted, c'est tout)
+  - Credit card number stored in server in clear (in the logs) -> https pas forcément secure
+  - Lots of event where card numbers are stolen
+
+  - Token generator -> Card unicity, usage unicity, non traçabilité of the achats (last point for privacy)
+
+  Générer un token:
+
+  - Format is not free
+  -> Verify validity and lifespan and quick
+  -> Prove no one can make a difference between a token and real credit cards
+  -> Quickly detect collisions during creation
+  -> format preserving encryption
+  -> non traçabilité of the tokens of a same client
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+FACEBOOK: automatic exploit generation (detection) -> make the program crash
+
+Presentation:
+  - lel
+
+  - Infer is used to find bugs in code changes
+  - Static Analysis TO FIND EXPLOITS
+
+  Infer:(some false positive)
+  - Static analysis platform (written in OCaml) -> lots of analysis (Pulse - memory, Quandary - taint analysis, InferBO - buffer overruns, Cost - time complexity)
+  - Checks for bugs or leaks in a program (ex on grep)
+
+
+  Analysis tool insight:
+  PULSE:
+  - computes Incorrectness (Separation Logic) triples
+
+  Problem: start from infer results and create a program that makes the function crash // From summary to crash ??
+
+  1) start from the result of Infer
+  2) hack directly inside Infer (open source)
+  3) do both
+
+  FIRST GOAL:
+  - Take info from Infer and crash the program
+  THEN:
+  - Instead of making the program crash -> EXPLOITS
+  - Check past versions of a project w/ vulnerabilities and find them
+  - Feed Pulse specs into a fuzzer and start fuzzing
