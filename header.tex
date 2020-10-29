@@ -1,0 +1,92 @@
+
+\usepackage[utf8]{inputenc}  
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{hhline}
+\usepackage[normalem]{ulem}
+\usepackage[font={color=foreground,bf}]{caption}
+\usepackage{array,booktabs,arydshln}
+\usepackage{pdflscape}
+\usepackage{xcolor}
+\usepackage{inconsolata}
+\usepackage{pgfplots}
+\usepackage{listings}
+\pgfplotsset{compat=1.17}
+\usetikzlibrary{shadows}
+
+\def\imgBaseDir{img}
+\def\imgSubDir{}
+\newcommand\setimgdir[1]{\def\imgSubDir{#1/}}
+
+\newcommand\img[1]{\includegraphics[width=\linewidth]{\imgBaseDir/\imgSubDir#1}}
+
+\newcommand\darktheme {
+	
+	\colorlet{foreground}{black!25}
+	\colorlet{background}{black!74}
+	\colorlet{focus}{yellow!50}
+	\definecolor{codeColor}{RGB}{85,255,85}
+	\colorlet{codeBackground}{black!80}
+	\def \imgBaseDir {imgDark}
+	
+	
+	
+}
+%\rowcolors{1}{background}{background!95} % Alternated array colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   BASIC STYLES   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\colorlet{foreground}{black}
+\colorlet{background}{white}
+\colorlet{focus}{blue}
+%\definecolor{codeColor}{RGB}{0,0,0}
+\colorlet{codeBackground}{black!10}
+
+
+
+\renewcommand\emph[1]	{{ \color{red!40}	\textbf{#1}} 			}
+\newcommand\mynote[1]	{{ \color{focus!50} \textbf{NOTE:	} #1 }\\}
+\newcommand\warning[1]	{{ \color{focus!70} \textbf{WARNING:} #1 }\\}
+\newcommand\todo[1]		{{ \color{focus} 	\textbf{TODO:} 	  #1 }\\}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   CODE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{
+	firstnumber=1,
+	texcl=true,inputencoding=latin1,
+	backgroundcolor=\color{codeBackground},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument,
+	basicstyle=\footnotesize\ttfamily,      % the size of the fonts that are used for the code
+	breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,
+	captionpos=b,                    % sets the caption-position to bottom
+	commentstyle=\color{green!65!black},    % comment style
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	frame=single,	                   % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue!60},       % keyword style
+	language=C,                 % the language of the code,
+	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{black!40}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=5,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{violet!50},     % string literal style
+	tabsize=4,	                   % sets default tabsize to 2 spaces
+	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title	
+}
+
+\newcommand\icode[1]{\lstinline[breaklines=true,breakatwhitespace=false, basicstyle=\ttfamily\small]{#1}}\lstnewenvironment{code}{}{}
+\lstnewenvironment{bash}{\lstset{language=Bash}}{}
+\lstnewenvironment{fcode}[1]{\lstset{caption=#1}}{}
+
+% % Environment for list in block most common case
+\newenvironment{bl}[1][] % By default, no title
+	{\begin{block}{#1}\begin{itemize}}
+	{\end{itemize}\end{block}}
+
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
