@@ -82,12 +82,15 @@ Problem Overview
 \item Bugs in devices
 \item Are they weaknesses ?
 \end{itemize}
-\begin{block}{Formal challenge}
-Can we automatically turn static analysis reports into executable confirming the vulnerability of a program ?
-\end{block}
+
 \begin{figure}
 \includegraphics[width = 2cm]{Figures/HeartbleedLogo.png}
 \end{figure}
+
+\begin{block}{Formal challenge}
+Can we automatically turn static analysis reports into executable confirming the vulnerability of a program ?
+\end{block}
+
 
 \end{frame}
 
@@ -157,7 +160,7 @@ Given the Infer information about bugs of a program A, create a program B that c
 \begin{frame}
 \centering
 
-Proposed approaches
+P\LARGE roposed approaches
 \end{frame}
 
 
@@ -171,15 +174,25 @@ Present model checking solution with Divine
 \end{frame}
 
 
-\subsection{SMT solvers/ SAT solver}
+\subsection{SMT solvers}
 
-\begin{frame}{SMT / SAT solvers}
+\begin{frame}{SMT solvers}
 
 Present logic solvers
 
 \end{frame}
 
+\begin{frame}{SMT Solvers}
+Compiler / Interpreter information
+\end{frame}
 
+\begin{frame}{SMT Solver}
+\includegraphics[width=9cm]{Figures/SMTsolver/SMTsolverCompete.png}
+\end{frame}
+
+\begin{frame}{SMT results}
+Present the results we have and on which program. The performance review is NOT done here, but in Part 3/Result Comparison
+\end{frame}
 
 \subsection{Fuzzing technique}
 
@@ -198,30 +211,30 @@ Present fuzzing techniques
 \end{frame}
 
 
-\section{Results and Future work}
+\section{Conclusions and perspectives}
 
 \begin{frame}
 \centering
-
-Results and future work
+\LARGE Conclusions and perspectives
 \end{frame}
 
-\subsection{Results}
+\subsection{Results comparison}
 
-\begin{frame}{Results}
+\begin{frame}{Results comparison}
 
 \textit{Show a table approaches / program comparing results (yes/no, running time, implementation complexity, computational complexity } \\
-\textit{Show some exploits results ?}
 
 \end{frame}
 
 \subsection{Future Work}
 \begin{frame}{Future work}
 
-Put eeeeeverything we think of. Ex
+Put eeeeeverything we think of. Ex:
+
 \begin{itemize}
+\item Generate 
 \item Create a fully automatic process
-\item Find automatic ways to generate exploits
+\item Find automatic ways to generate exploits (using dictionary like attacks)
 \end{itemize}
 
 \end{frame}
