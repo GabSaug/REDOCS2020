@@ -3,33 +3,67 @@
 \usepackage[T1]{fontenc}
 \usepackage{ragged2e}
 \justifying
+
+\newcommand{\logoWidth}{1 cm}
+\newcommand{\spaceh}{0,5 cm}
+
+
  \title{Automatic exploit generation}
-\author{Maxime, Manh-Dung, Tristan, Emilien, Gabriel + noms \\
-\textbf{Supervision}: Jules - Facebook}
-\institute{REDOCS 2020}
-\date{\today}
+\author[shortname]{
+Maxime Bélair  \inst{1} \and
+Manh-Dung Nguyen  \inst{2} \and
+Emilien Fournier \inst{3}\and
+ Tristan Benoit \inst{4}\and
+Gabriel Sauger \inst{5}\\
+\vspace{0.3cm}
+\textbf{Subject by}: \large Jules Villard - 
+\includegraphics[width = 1cm]{Figures/Logos/FacebookLogo.png}
+}
+
+\institute{
+\inst{1}%
+Orange Labs / IMT atlantique - \tiny maxime.belair@imt-atlantique.fr
+\and
+\inst{2}%
+CEA LIST \& Université Grenoble Alpes - \tiny manh-dung.nguyen@cea.fr
+\and
+\inst{3}%
+ENSTA Bretagne / Lab-STICC - \tiny emilien.fournier@ensta-bretagne.org
+\and
+\inst{4}%
+LORIA - \tiny tristan.benoit@loria.fr
+\and
+\inst{5}%
+LORIA - \tiny gabriel.sauger@loria.fr
+}
+\date{}
+
+\titlegraphic{ \vspace{-1cm}
+
+\includegraphics[width = \logoWidth]{Figures/Logos/MaxLogo1.png}
+\includegraphics[width = 0.5cm]{Figures/Logos/MaxLogo2.png}
+\hspace{\spaceh}
+\includegraphics[width = 0.75cm]{Figures/Logos/MDLogo1.png}
+\includegraphics[width = \logoWidth]{Figures/Logos/MDLogo2.png}
+\hspace{\spaceh}
+\includegraphics[width = 2.5cm]{Figures/Logos/EmilienLogo1.png}
+\hspace{0.5cm}
+\includegraphics[width = 2CM]{Figures/Logos/GabrielLogo1.png}
+\hspace{\spaceh}
+}
 
 
 \usetheme{Antibes}
 
-\justifying
+
 \setbeamertemplate{footline}[frame number]
+
+
 \begin{document}
 
 \begin{frame}
 \titlepage
 \end{frame}
-
-\section*{Introduction}
-\begin{frame}{Introduction}
-\centering
-Work given by Facebook
-\end{frame}
-
-
-
-
-
 
 
 \section{Problem overview}
@@ -95,18 +129,18 @@ We can show pictures or live performance. Ask the audience to detect the bug.
 We can show pictures or live performance.
 \end{frame}
 
-\subsection{Challenge approach}
+\subsection{Practical approach}
 
-\begin{frame}{Challenge approach}
+\begin{frame}{Practical approach}
 
 \begin{figure}
-\includegraphics[width=8cm]{Figures/Workflow.png}
+\includegraphics[width=9.5cm]{Figures/Workflow.png}
 \end{figure}
 
 \end{frame}
 
 
-\begin{frame}{Challenge approach}
+\begin{frame}{Practical approach}
 
 \begin{block}{Practical challenge}
 Given the Infer information about bugs of a program A, create a program B that crashes A
