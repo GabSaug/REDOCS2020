@@ -2,56 +2,62 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{ragged2e}
+\input{headerBeamer}
+
 \justifying
 
 \newcommand{\logoWidth}{1 cm}
 \newcommand{\spaceh}{0,5 cm}
+\colorlet{foreground}{black}
+\colorlet{background}{white}
+\colorlet{focus}{blue}
+%\definecolor{codeColor}{RGB}{0,0,0}
+\colorlet{codeBackground}{black!10}
 
 
- \title{Automatic exploit generation}
+\title{Automatic exploit generation}
 \author[shortname]{
-Maxime Bélair  \inst{1} \and
-Manh-Dung Nguyen  \inst{2} \and
-Emilien Fournier \inst{3}\and
- Tristan Benoit \inst{4}\and
-Gabriel Sauger \inst{5}\\
-\vspace{0.3cm}
-\textbf{Subject by}: \large Jules Villard - 
-\includegraphics[width = 1cm]{Figures/Logos/FacebookLogo.png}
+	Maxime Bélair  \inst{1} \and
+	Manh-Dung Nguyen  \inst{2} \and
+	Emilien Fournier \inst{3}\and
+	Tristan Benoit \inst{4}\and
+	Gabriel Sauger \inst{5}\\
+	\vspace{0.3cm}
+	\textbf{Subject by}: \large Jules Villard - 
+	\includegraphics[width = 1cm]{Figures/Logos/FacebookLogo.png}
 }
 
 \institute{
-\inst{1}%
-Orange Labs / IMT atlantique - \tiny maxime.belair@imt-atlantique.fr
-\and
-\inst{2}%
-CEA LIST \& Université Grenoble Alpes - \tiny manh-dung.nguyen@cea.fr
-\and
-\inst{3}%
-ENSTA Bretagne / Lab-STICC - \tiny emilien.fournier@ensta-bretagne.org
-\and
-\inst{4}%
-LORIA - \tiny tristan.benoit@loria.fr
-\and
-\inst{5}%
-LORIA - \tiny gabriel.sauger@loria.fr
+	\inst{1}%
+	Orange Labs / IMT atlantique - \tiny maxime.belair@imt-atlantique.fr
+	\and
+	\inst{2}%
+	CEA LIST \& Université Grenoble Alpes - \tiny manh-dung.nguyen@cea.fr
+	\and
+	\inst{3}%
+	ENSTA Bretagne / Lab-STICC - \tiny emilien.fournier@ensta-bretagne.org
+	\and
+	\inst{4}%
+	LORIA - \tiny tristan.benoit@loria.fr
+	\and
+	\inst{5}%
+	LORIA - \tiny gabriel.sauger@loria.fr
 }
 \date{}
 
 \titlegraphic{ \vspace{-1cm}
-
-\includegraphics[width = \logoWidth]{Figures/Logos/MaxLogo1.png}
-\includegraphics[width = 0.5cm]{Figures/Logos/MaxLogo2.png}
-\hspace{\spaceh}
-\includegraphics[width = 0.75cm]{Figures/Logos/MDLogo1.png}
-\includegraphics[width = \logoWidth]{Figures/Logos/MDLogo2.png}
-\hspace{\spaceh}
-\includegraphics[width = 2.5cm]{Figures/Logos/EmilienLogo1.png}
-\hspace{0.5cm}
-\includegraphics[width = 2CM]{Figures/Logos/GabrielLogo1.png}
-\hspace{\spaceh}
+	
+	\includegraphics[width = \logoWidth]{Figures/Logos/MaxLogo1.png}
+	\includegraphics[width = 0.5cm]{Figures/Logos/MaxLogo2.png}
+	\hspace{\spaceh}
+	\includegraphics[width = 0.75cm]{Figures/Logos/MDLogo1.png}
+	\includegraphics[width = \logoWidth]{Figures/Logos/MDLogo2.png}
+	\hspace{\spaceh}
+	\includegraphics[width = 2.5cm]{Figures/Logos/EmilienLogo1.png}
+	\hspace{0.5cm}
+	\includegraphics[width = 2CM]{Figures/Logos/GabrielLogo1.png}
+	\hspace{\spaceh}
 }
-
 
 \usetheme{Antibes}
 
@@ -60,9 +66,9 @@ LORIA - \tiny gabriel.sauger@loria.fr
 
 
 \begin{document}
-
-\begin{frame}
-\titlepage
+	
+	\begin{frame}
+	\titlepage
 \end{frame}
 
 
@@ -165,39 +171,39 @@ P\LARGE roposed approaches
 
 \begin{frame}{Model checking }
 
-    \begin{columns}[t]
-        \begin{column}{5cm}
-            \begin{block}{ Model Checking }
-                \begin{itemize}
-                    \item Intuitive 
-                    \item Automated 
-                    \item Provides counter-example 
-                    \item[$\times$] State-space explosion
-                \end{itemize}
-            \end{block}
+\begin{columns}[t]
+\begin{column}{5cm}
+\begin{block}{ Model Checking }
+\begin{itemize}
+\item Intuitive 
+\item Automated 
+\item Provides counter-example 
+\item[$\times$] State-space explosion
+\end{itemize}
+\end{block}
 
-            \begin{block}{What is it ? }
-                \begin{itemize}
-                    \item Fixed-point algorithm 
-                    \item Plenty of algorithmic variations
-                \end{itemize}
+\begin{block}{What is it ? }
+\begin{itemize}
+\item Fixed-point algorithm 
+\item Plenty of algorithmic variations
+\end{itemize}
 
-            \end{block}
-        \end{column}
+\end{block}
+\end{column}
 
-        \begin{column}{5cm}
-            
-        \end{column}
-    \end{columns}
+\begin{column}{5cm}
+
+\end{column}
+\end{columns}
 
 \end{frame}
 
 \begin{frame}
-    \frametitle{}
+\frametitle{}
 
-    \includegraphics[width=0.8\textwidth]{Figures/Model-checking.png}
+\includegraphics[width=0.8\textwidth]{Figures/Model-checking.png}
 
-    
+
 
 \end{frame}
 
@@ -292,10 +298,54 @@ Put eeeeeverything we think of. Ex:
 \textit{Add a graph of automatic exploits using expert models}
 \end{frame}
 
+\begin{frame}
+\frametitle{Future Work -- Automatic exploit generation}
+\begin{itemize}
+\item We go to bugs
+\item How to exploit them?
+\item Create an expert code
+\item Translate it to graph
+\item Find all possible exploits with the same graph algorithms
+\item $\to$ FULLY AUTOMATED EXPLOITS!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Trivial attack}
+\begin{code}
+void onBufferOverflow(struct infer_env* env, unsigned int bufsz, unsigned long entrypoint) {
+if(bufSz > (off($rip) - &entry))
+addExploit("Can rewrite on $rip");
+for(int var=0;  var < env.payload_nb_vars; ++var)
+if( env.payload_vars.rewrittable && env.payload_vars.used)
+addExploit("Can Hijack the program");
+/* [...]  */
+}
+\end{code}
+\end{frame}
+
+\begin{frame}
+\frametitle{Future Work -- Automatic exploit generation}
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\begin{tikzpicture}
+\node at (0,0) [rectangle,draw] (s) {Buffer overflow};
+\node at (5,0) [rectangle,draw] (a1) {if(bufSz > (off(\$rip) - \&entry))};
+\node at (9,0) [rectangle,draw] (a2) {Exploit!};
+\node at (0,-2) [rectangle,draw] (b1) {For each variable};
+\node at (4,-2) [rectangle,draw] (b2) {Can rewrite var?};
+\node at (7,-2) [rectangle,draw] (b3) {var used?};
+\node at (9,-2) [rectangle,draw] (b4) {Exploit!};
+\draw[->] (s) -- (a1) -- (a2);
+\draw[->] (s) -- (b1) -- (b2) -- (b3) -- (b4);
+\end{tikzpicture}
+
+\end{frame}
 \begin{frame}{Thank you Questions ?}
 
 See the title
 
 \end{frame}
+
+
 
 \end{document}
