@@ -1,3 +1,4 @@
+% !TeX spellcheck en_US
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -85,20 +86,25 @@ Problem Overview
 \begin{frame}{Context}
 
 \begin{itemize}
-\item Bugs in devices
-\item Are they weaknesses ?
+\item Codebases are bigger than ever
+\item More bugs than ever!
 \end{itemize}
 
 \begin{block}{Formal challenge}
 Can we automatically turn static analysis reports into executable confirming the vulnerability of a program ?
 \end{block}
-
-
+\end{frame}
+\begin{frame}{Context}
+\includegraphics[width=\textwidth]{Figures/developpez.PNG}
 \end{frame}
 
-\subsection*{Program bug example}
+\subsection{Program bug example}
 \begin{frame}{Program bug example}
-\includegraphics[width=12cm]{Figures/main.c/mainTest.png}
+\begin{itemize}
+	\item Example of vulnerability -- 101 Buffer overflow
+	\item Exploit it manually
+	\item Automatize it through infer later!
+\end{itemize}
 \end{frame}
 
 \subsection{Infer tool}
@@ -106,7 +112,7 @@ Can we automatically turn static analysis reports into executable confirming the
 \begin{frame}{Infer tool}
 
 \begin{figure}
-\includegraphics[width=10cm]{Figures/InferDrawing.png}
+\includegraphics[width=\textwidth]{Figures/InferDrawing.png}
 \end{figure}
 
 \end{frame}
@@ -129,7 +135,7 @@ Can we automatically turn static analysis reports into executable confirming the
 
 \begin{frame}{Infer tool example}
 
-\includegraphics[width=12cm]{Figures/main.c/inferRunOnMain.png}
+\includegraphics[width=\textwidth]{Figures/main.c/inferRunOnMain.png}
 \end{frame}
 
 \subsection{Practical approach}
@@ -311,15 +317,15 @@ Put eeeeeverything we think of. Ex:
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Trivial attack}
+\frametitle{Convert vulnerabilities to bug}
 \begin{code}
 void onBufferOverflow(struct infer_env* env, unsigned int bufsz, unsigned long entrypoint) {
-if(bufSz > (off($rip) - &entry))
-addExploit("Can rewrite on $rip");
-for(int var=0;  var < env.payload_nb_vars; ++var)
-if( env.payload_vars.rewrittable && env.payload_vars.used)
-addExploit("Can Hijack the program");
-/* [...]  */
+	if(bufSz > (off($rip) - &entry))
+		addExploit("Can rewrite on $rip");
+	for(int var=0;  var < env.payload_nb_vars; ++var)
+		if( env.payload_vars.rewrittable && env.payload_vars.used)
+			addExploit("Can Hijack the program");
+	/* [...]  */
 }
 \end{code}
 \end{frame}
@@ -335,10 +341,46 @@ addExploit("Can Hijack the program");
 \node at (4,-2) [rectangle,draw] (b2) {Can rewrite var?};
 \node at (7,-2) [rectangle,draw] (b3) {var used?};
 \node at (9,-2) [rectangle,draw] (b4) {Exploit!};
-\draw[->] (s) -- (a1) -- (a2);
-\draw[->] (s) -- (b1) -- (b2) -- (b3) -- (b4);
+\draw[->] (s) -- (a1);
+\draw[->] (a1) -- (a2);
+\draw[->] (s) -- (b1) ;
+\draw[->] (b1) -- (b2);
+\draw[->] (b2)-- (b3) ;
+\draw[->](b3) -- (b4);
 \end{tikzpicture}
 
+\end{frame}
+\begin{frame}
+	\frametitle{Other Approaches -- Hybrid methods}
+	\begin{itemize}
+		\item Hybrid methods
+		\begin{itemize}
+			\item Prune interesting branches with Fuzzing + Heuristics
+			\item SMT on subproblems
+			\item Allow to work on bigger projects
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Improve the framework}
+\begin{itemize}
+	\item Fuzzing
+	\begin{itemize}
+		\item Resolve magic-bytes comparisions, e.g., \icode{strcmp}
+		\item Distance computation is long with large programs
+	\end{itemize}
+\item SMT
+\begin{itemize}
+	\item Add more types
+	\item Support arbitrary memory accesses
+	\item Improve function with hooks	
+\end{itemize}
+\item Solver
+\begin{itemize}
+	\item CCCC
+\end{itemize}
+\end{itemize}
 \end{frame}
 \begin{frame}{Thank you Questions ?}
 
