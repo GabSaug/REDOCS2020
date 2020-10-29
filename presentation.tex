@@ -255,19 +255,27 @@ P\LARGE roposed approaches
 \begin{frame}{Fuzzing technique}
 
 \includegraphics[width=11.5cm]{Figures/Fuzzing/graph1.png}
-
+\centering\textbf{> 100 fuzzers} in recent years
 \end{frame}
 
-\begin{frame}{Coverage-guided Greybox fuzzing}
+\begin{frame}{Coverage-guided greybox fuzzing}
 \includegraphics[width=11.5cm]{Figures/Fuzzing/graph2.png}
+
+\centering Goal: Cover as many paths as possible\\
+\centering Leverage code coverage (e.g., lines, branches) to guide the fuzzer
 \end{frame}
 
-\begin{frame}{Direct Greybox fuzzing}
-\includegraphics[width=11.5cm]{Figures/Fuzzing/graph3.png}
+\begin{frame}{Intuitions of Directed greybox fuzzing}
+\begin{itemize}
+	\item Goal: Reach predefined targets (e.g., recent code changes, vulnerable functions, patches)
+	\item New distance-based input metric
+	\item Favor inputs that are "closer" to targets (select more often, produce more mutants from those inputs)
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Motivations}
-Explain intuiton for our problem
+\begin{frame}{Directed greybox fuzzing}
+\includegraphics[width=11.5cm,height=7cm]{Figures/Fuzzing/graph3.png}
+
 \end{frame}
 
 \begin{frame}{Fuzzing technique}
@@ -277,6 +285,14 @@ Explain intuiton for our problem
 \includegraphics<3>[scale=0.3]{Figures/Fuzzing/3.png}
 \includegraphics<4>[scale=0.3]{Figures/Fuzzing/4.png}
 \includegraphics<5>[scale=0.3]{Figures/Fuzzing/5.png}
+
+\end{frame}
+
+\begin{frame}{Result}
+\begin{itemize}
+	\item Implementation: a Python script to parse Infer's output \& generate a script to automatically run AFLGo
+	\item Evaluation: run 5 times due to randomness
+\end{itemize}
 
 \end{frame}
 
@@ -390,9 +406,16 @@ void onBufferOverflow(struct infer_env* env, unsigned int bufsz, unsigned long e
 \end{itemize}
 \end{itemize}
 \end{frame}
-\begin{frame}{Thank you Questions ?}
+\begin{frame}{It works on my machine}
+\begin{center}
+	\includegraphics[height=\textheight]{Figures/Compilation}
+\end{center}
 
-See the title
+
+\end{frame}
+\begin{frame}{Thank you !}
+
+	\includegraphics[width=\textwidth]{Figures/Questions}
 
 \end{frame}
 
