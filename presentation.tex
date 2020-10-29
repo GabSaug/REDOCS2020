@@ -177,41 +177,51 @@ P\LARGE roposed approaches
 
 \begin{frame}{Model checking }
 
-\begin{columns}[t]
-\begin{column}{5cm}
-\begin{block}{ Model Checking }
-\begin{itemize}
-\item Intuitive 
-\item Automated 
-\item Provides counter-example 
-\item[$\times$] State-space explosion
-\end{itemize}
-\end{block}
+    \begin{columns}
+        \begin{column}{5cm}
+ 
+            \begin{block}{ Overview }
+                \begin{itemize}
+                    \item Intuitive 
+                    \item Automated 
+                    \item Provides counter-examples 
+                    \item[$\times$] State-space explosion
+                \end{itemize}
+            \end{block}
+        
+            \begin{block}{}
+                \begin{itemize}
+                    \item Fixed-point algorithm 
+                    \item Plenty of algorithmic variations
+                \end{itemize}
+            \end{block}
 
-\begin{block}{What is it ? }
-\begin{itemize}
-\item Fixed-point algorithm 
-\item Plenty of algorithmic variations
-\end{itemize}
-
-\end{block}
-\end{column}
-
-\begin{column}{5cm}
-
-\end{column}
-\end{columns}
-
+        \end{column}
+            
+        \begin{column}{5cm}
+            % \begin{block}{Overview}
+                \includegraphics[width=\textwidth]{Figures/Model-checking.png}
+            % \end{block}
+        \end{column}
+    \end{columns}
 \end{frame}
+
 
 \begin{frame}
-\frametitle{}
+    \frametitle{Application : How ? }
 
-\includegraphics[width=0.8\textwidth]{Figures/Model-checking.png}
+    \includegraphics[width=\textwidth]{Figures/slide_mc.png}
 
-
+    \begin{block}{Results}
+        \begin{itemize}
+            \item Custom model-checker
+            \item 16 reachability algorithms supported
+        \end{itemize}
+    \end{block}
 
 \end{frame}
+
+
 
 
 \subsection{SMT solvers}
