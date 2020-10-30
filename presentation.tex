@@ -75,28 +75,32 @@
 
 \section{Problem overview}
 
-\begin{frame}
-\centering
-\LARGE
-Problem Overview
-\end{frame}
+% \begin{frame}
+% \centering
+% \LARGE
+
+% \end{frame}
 
 \subsection{Context}
 
-\begin{frame}{Context}
+\begin{frame}{Problem Overview}
+\begin{block}{Context}
+    \begin{itemize}
+        \item Codebases are bigger than ever
+        \item More bugs than ever!
+    \end{itemize}            
+\end{block}\pause
 
-\begin{itemize}
-\item Codebases are bigger than ever
-\item More bugs than ever!
-\end{itemize}
+\includegraphics[width=\textwidth]{Figures/developpez.PNG} \pause
 
 \begin{block}{Formal challenge}
 Can we automatically turn static analysis reports into executable confirming the vulnerability of a program ?
 \end{block}
 \end{frame}
-\begin{frame}{Context}
-\includegraphics[width=\textwidth]{Figures/developpez.PNG}
-\end{frame}
+
+
+% \begin{frame}{Context}
+% \end{frame}
 
 \subsection{Program bug example}
 \begin{frame}{Program bug example}
@@ -133,10 +137,9 @@ Can we automatically turn static analysis reports into executable confirming the
 
 \end{frame}
 
-\begin{frame}{Infer tool example}
-
-\includegraphics[width=\textwidth]{Figures/main.c/inferRunOnMain.png}
-\end{frame}
+% \begin{frame}{Infer tool example}
+% \includegraphics[width=\textwidth]{Figures/main.c/inferRunOnMain.png}
+% \end{frame}
 
 \subsection{Practical approach}
 
@@ -189,7 +192,7 @@ P\LARGE roposed approaches
                 \end{itemize}
             \end{block}
         
-            \begin{block}{}
+            \begin{block}{}\pause
                 \begin{itemize}
                     \item Fixed-point algorithm 
                     \item Plenty of algorithmic variations
@@ -210,7 +213,7 @@ P\LARGE roposed approaches
 \begin{frame}
     \frametitle{Application : How ? }
 
-    \includegraphics[width=\textwidth]{Figures/slide_mc.png}
+    \includegraphics<2>[width=\textwidth]{Figures/slide_mc.png}
 
     \begin{block}{Results}
         \begin{itemize}
@@ -227,7 +230,8 @@ P\LARGE roposed approaches
 
 \subsection{Symbolic approach : SMT }
 \begin{frame}{CFG and BFS}
-    \textit{Insert the graph}
+    \includegraphics[width=10cm]{Figures/SMTsolver/CFG.png}
+
 \end{frame}
 
 \begin{frame}{Compiler}
