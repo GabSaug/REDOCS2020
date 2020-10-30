@@ -85,16 +85,16 @@
 
 \begin{frame}{Problem Overview}
 \begin{block}{Context}
-    \begin{itemize}
-        \item Codebases are bigger than ever
-        \item More bugs than ever!
-    \end{itemize}            
+	\begin{itemize}
+		\item Codebases are bigger than ever
+		\item More bugs than ever!
+	\end{itemize}            
 \end{block}\pause
 
 \includegraphics[width=\textwidth]{Figures/developpez.PNG} \pause
 
 \begin{block}{Formal challenge}
-Can we automatically turn static analysis reports into executable confirming the vulnerability of a program ?
+	Can we automatically turn static analysis reports into executable confirming the vulnerability of a program ?
 \end{block}
 \end{frame}
 
@@ -105,9 +105,9 @@ Can we automatically turn static analysis reports into executable confirming the
 \subsection{Program bug example}
 \begin{frame}{Program bug example}
 \begin{itemize}
-	\item Example of vulnerability -- 101 Buffer overflow
-	\item Exploit it manually
-	\item Automatize it through infer later!
+\item Example of vulnerability -- 101 Buffer overflow
+\item Exploit it manually
+\item Automatize it through infer later!
 \end{itemize}
 \end{frame}
 
@@ -180,47 +180,47 @@ P\LARGE roposed approaches
 
 \begin{frame}{Model checking }
 
-    \begin{columns}
-        \begin{column}{5cm}
- 
-            \begin{block}{ Overview }
-                \begin{itemize}
-                    \item Intuitive 
-                    \item Automated 
-                    \item Provides counter-examples 
-                    \item[$\times$] State-space explosion
-                \end{itemize}
-            \end{block}
-        
-            \begin{block}{}\pause
-                \begin{itemize}
-                    \item Fixed-point algorithm 
-                    \item Plenty of algorithmic variations
-                \end{itemize}
-            \end{block}
+\begin{columns}
+\begin{column}{5cm}
 
-        \end{column}
-            
-        \begin{column}{5cm}
-            % \begin{block}{Overview}
-                \includegraphics[width=\textwidth]{Figures/Model-checking.png}
-            % \end{block}
-        \end{column}
-    \end{columns}
+\begin{block}{ Overview }
+\begin{itemize}
+\item Intuitive 
+\item Automated 
+\item Provides counter-examples 
+\item[$\times$] State-space explosion
+\end{itemize}
+\end{block}
+
+\begin{block}{}\pause
+\begin{itemize}
+\item Fixed-point algorithm 
+\item Plenty of algorithmic variations
+\end{itemize}
+\end{block}
+
+\end{column}
+
+\begin{column}{5cm}
+% \begin{block}{Overview}
+\includegraphics[width=\textwidth]{Figures/Model-checking.png}
+% \end{block}
+\end{column}
+\end{columns}
 \end{frame}
 
 
 \begin{frame}
-    \frametitle{Application : How ? }
+\frametitle{Application : How ? }
 
-    \includegraphics<2>[width=\textwidth]{Figures/slide_mc.png}
+\includegraphics<2>[width=\textwidth]{Figures/slide_mc.png}
 
-    \begin{block}{Results}
-        \begin{itemize}
-            \item Custom model-checker
-            \item 16 reachability algorithms supported
-        \end{itemize}
-    \end{block}
+\begin{block}{Results}
+\begin{itemize}
+\item Custom model-checker
+\item 16 reachability algorithms supported
+\end{itemize}
+\end{block}
 
 \end{frame}
 
@@ -230,7 +230,7 @@ P\LARGE roposed approaches
 
 \subsection{Symbolic approach : SMT }
 \begin{frame}{CFG and BFS}
-    \includegraphics[width=10cm]{Figures/SMTsolver/CFG.png}
+\includegraphics[width=10cm]{Figures/SMTsolver/CFG.png}
 
 \end{frame}
 
@@ -271,9 +271,9 @@ P\LARGE roposed approaches
 
 \begin{frame}{Intuitions of Directed greybox fuzzing}
 \begin{itemize}
-	\item Goal: Reach predefined targets (e.g., recent code changes, vulnerable functions, patches)
-	\item New distance-based input metric
-	\item Favor inputs that are "closer" to targets (select more often, produce more mutants from those inputs)
+\item Goal: Reach predefined targets (e.g., recent code changes, vulnerable functions, patches)
+\item New distance-based input metric
+\item Favor inputs that are "closer" to targets (select more often, produce more mutants from those inputs)
 \end{itemize}
 \end{frame}
 
@@ -294,8 +294,8 @@ P\LARGE roposed approaches
 
 \begin{frame}{Result}
 \begin{itemize}
-	\item Implementation: a Python script to parse Infer's output \& generate a script to automatically run AFLGo
-	\item Evaluation: run 5 times due to randomness
+\item Implementation: a Python script to parse Infer's output \& generate a script to automatically run AFLGo
+\item Evaluation: run 5 times due to randomness
 \end{itemize}
 
 \end{frame}
@@ -348,12 +348,12 @@ Put eeeeeverything we think of. Ex:
 \frametitle{Convert vulnerabilities to bug}
 \begin{code}
 void onBufferOverflow(struct infer_env* env, unsigned int bufsz, unsigned long entrypoint) {
-	if(bufSz > (off($rip) - &entry))
-		addExploit("Can rewrite on $rip");
-	for(int var=0;  var < env.payload_nb_vars; ++var)
-		if( env.payload_vars.rewrittable && env.payload_vars.used)
-			addExploit("Can Hijack the program");
-	/* [...]  */
+if(bufSz > (off($rip) - &entry))
+addExploit("Can rewrite on $rip");
+for(int var=0;  var < env.payload_nb_vars; ++var)
+if( env.payload_vars.rewrittable && env.payload_vars.used)
+addExploit("Can Hijack the program");
+/* [...]  */
 }
 \end{code}
 \end{frame}
@@ -378,48 +378,83 @@ void onBufferOverflow(struct infer_env* env, unsigned int bufsz, unsigned long e
 \end{tikzpicture}
 
 \end{frame}
+
 \begin{frame}
-	\frametitle{Other Approaches -- Hybrid methods}
+\frametitle{Other Approaches -- Hybrid methods}
+\begin{itemize}
+\item Hybrid methods
+\begin{itemize}
+\item Prune interesting branches with Fuzzing + Heuristics
+\item SMT on subproblems
+\item Allow to work on bigger projects
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Recap}
+
+\begin{columns}
+	\column{0.333\textwidth}
+	SMT
 	\begin{itemize}
-		\item Hybrid methods
-		\begin{itemize}
-			\item Prune interesting branches with Fuzzing + Heuristics
-			\item SMT on subproblems
-			\item Allow to work on bigger projects
-		\end{itemize}
+		\item[+] Rapide
+		\item[+] Complexité des fonctions 
+		\item[--] Limitations sémantiques
 	\end{itemize}
+	\includegraphics[width=\textwidth]{Figures/SMT_sumup}
+	
+	\column{0.333\textwidth} 
+	Fuzzing
+	\begin{itemize}
+		\item[+] Can be efficent
+		\item[--] Does not always find the solution
+	\end{itemize}
+	
+	\includegraphics[width=\textwidth]{Figures/Fuzzing_sumup}    
+	\column{0.333\textwidth}
+	Model Checking
+	\begin{itemize}
+		\item[+] Sémantique 
+		\item[--] Explosion combinatoire
+		
+	\end{itemize}
+	\includegraphics[width=\textwidth]{Figures/sumup_MC}
+\end{columns}
+
+
 \end{frame}
 
 \begin{frame}
 \frametitle{Improve the framework}
 \begin{itemize}
-	\item Fuzzing
-	\begin{itemize}
-		\item Resolve magic-bytes comparisions, e.g., \icode{strcmp}
-		\item Distance computation is long with large programs
-	\end{itemize}
+\item Fuzzing
+\begin{itemize}
+\item Resolve magic-bytes comparisions, e.g., \icode{strcmp}
+\item Distance computation is long with large programs
+\end{itemize}
 \item SMT
 \begin{itemize}
-	\item Add more types
-	\item Support arbitrary memory accesses
-	\item Improve function with hooks	
+\item Add more types
+\item Support arbitrary memory accesses
+\item Improve function with hooks	
 \end{itemize}
 \item Solver
 \begin{itemize}
-	\item CCCC
+\item CCCC
 \end{itemize}
 \end{itemize}
 \end{frame}
 \begin{frame}{It works on my machine}
 \begin{center}
-	\includegraphics[height=\textheight]{Figures/Compilation}
+\includegraphics[height=\textheight]{Figures/Compilation}
 \end{center}
 
 
 \end{frame}
+
 \begin{frame}{Thank you !}
 
-	\includegraphics[width=\textwidth]{Figures/Questions}
+\includegraphics[width=\textwidth]{Figures/Questions}
 
 \end{frame}
 
